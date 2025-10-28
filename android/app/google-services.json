@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "388455648012",
+    "project_id": "testzego-a8301",
+    "storage_bucket": "testzego-a8301.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388455648012:android:c5636cc3a8526e95739729",
+        "android_client_info": {
+          "package_name": "com.example.five_line_task"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAz4zljnAH2t1nWzgNKkdjpkbZEFjP6dzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388455648012:android:c5f388fdd9406180739729",
+        "android_client_info": {
+          "package_name": "com.example.spotify_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAz4zljnAH2t1nWzgNKkdjpkbZEFjP6dzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
