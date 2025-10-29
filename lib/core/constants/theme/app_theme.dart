@@ -23,6 +23,7 @@ class AppTheme {
     ), // ElevatedButtonThemeData
   );
   static final darkTheme = ThemeData(
+    
         fontFamily: 'Satoshi',
   primaryColor: AppColors.primary,
   scaffoldBackgroundColor: AppColors.darkBackground,

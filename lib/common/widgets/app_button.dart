@@ -49,7 +49,7 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    // Colors
+    
     final effectiveBackgroundColor = backgroundColor ?? theme.primaryColor;
     final effectiveTextColor = textColor ?? theme.colorScheme.onPrimary;
     final effectiveDisabledColor = disabledColor ?? theme.disabledColor;
@@ -64,7 +64,7 @@ class AppButton extends StatelessWidget {
     final effectiveBorderWidth = borderWidth ?? 0;
 
     // Padding - Control left/right padding independently
-    final effectivePadding = padding ?? EdgeInsets.symmetric(horizontal: 130.w);
+    final effectivePadding = padding ?? EdgeInsets.symmetric(horizontal: 100.w);
     final effectiveMargin = margin ?? EdgeInsets.symmetric(vertical: 4.h);
 
     // Text Style

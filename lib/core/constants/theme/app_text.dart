@@ -7,7 +7,7 @@ class AppTextTheme {
     displayLarge: TextStyle(
       fontWeight: FontWeight.bold,
       color: AppColors.lightTitle,
-      fontSize: 23.sp,
+      fontSize: 18.sp,
     ),
     displayMedium: TextStyle(
       fontWeight: FontWeight.bold,
@@ -26,16 +26,21 @@ class AppTextTheme {
     ),
     bodySmall: TextStyle(
       fontWeight: FontWeight.normal,
-      color: AppColors.lightText,
+      color: AppColors.lightTextBody,
       fontSize: 15.sp,
+    ),
+    titleLarge: TextStyle(
+      fontWeight: FontWeight.bold,
+      color: AppColors.primary,
+      fontSize: 26.sp,
     ),
   );
 
-  // Helper methods
   static TextStyle get headingMediumBold => textTheme.displayMedium!;
   static TextStyle get headingSmallBold => textTheme.displaySmall!;
   static TextStyle get headingLightBold => textTheme.displayLarge!;
 
   static TextStyle get bodySmallGrey => textTheme.bodyMedium!;
   static TextStyle get bodySmallLight => textTheme.bodySmall!;
+  static TextStyle get logoTitle => textTheme.titleLarge!;
 }
