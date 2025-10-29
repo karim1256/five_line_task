@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
               Widget appRichText({required String? text1, String? text2}) {
                 return RichText(
                   text: TextSpan(

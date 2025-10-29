@@ -64,7 +64,7 @@ class AppButton extends StatelessWidget {
     final effectiveBorderWidth = borderWidth ?? 0;
 
     // Padding - Control left/right padding independently
-    final effectivePadding = padding ?? EdgeInsets.symmetric(horizontal: 130.w);
+    final effectivePadding = padding ?? EdgeInsets.symmetric(horizontal: 100.w);
     final effectiveMargin = margin ?? EdgeInsets.symmetric(vertical: 4.h);
 
     // Text Style

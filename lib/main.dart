@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:five_line_task/app_route.dart';
 import 'package:five_line_task/core/constants/theme/app_theme.dart';
+import 'package:five_line_task/features/welcome/presentation/cubit/theme_cubit/theme_cubit.dart';
 import 'package:five_line_task/firebase_options.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -35,15 +36,16 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MultiBlocProvider(
           providers: [
+            BlocProvider<ThemeCubit>(
+              create: (context) => ThemeCubit(),
+            ),
           ],
-          child: BlocBuilder<ThemeCubit,ThemeMode>(
-            builder: (BuildContext context, ThemeMode mode) 
-            =>
-             MaterialApp(
+          child: BlocBuilder<ThemeCubit, ThemeMode>(
+            builder: (BuildContext context, ThemeMode mode) => MaterialApp(
               theme: AppTheme.lightTheme,
               darkTheme: AppTheme.darkTheme,
               themeMode: mode,
-              initialRoute: AppRoutes.signUp,
+              initialRoute: AppRoutes.splash,
               routes: routes,
               debugShowCheckedModeBanner: false,
             ),

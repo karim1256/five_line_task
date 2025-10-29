@@ -1,4 +1,5 @@
 import 'package:five_line_task/app_route.dart';
+import 'package:five_line_task/common/helpers.dart/is_dark_mode.dart';
 import 'package:five_line_task/common/widgets/app_button.dart';
 import 'package:five_line_task/common/widgets/logo.dart';
 import 'package:five_line_task/core/constants/app_strings.dart';
@@ -17,11 +18,14 @@ class ChoooseModeScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset(
-            AppImages.chooseModeBg,
-            fit: BoxFit.cover,
-            height: double.infinity,
-            width: double.infinity,
+          Positioned(
+            top: 160.h,
+            left: 50.w,
+            child: Image.asset(
+              AppImages.chooseModeBg,
+              fit: BoxFit.cover,
+              width: 0.8.sw,
+            ),
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 27.w, vertical: 40.h),
@@ -30,14 +34,17 @@ class ChoooseModeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SizedBox(width: double.infinity, height: 20.h),
-                spotifyLogo(),
+                logo(),
                 Spacer(),
                 Text(
                   AppStrings.chooseMode,
                   textAlign: TextAlign.center,
-                  style: AppTextTheme.headingMediumBold,
+                  style: context.isDarkMode
+                      ? AppTextTheme.headingMediumBold
+                      : AppTextTheme.headingLightBold,
+                      
                 ),
-                SizedBox(height: 21.h),
+                SizedBox(height: 15.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -56,10 +63,15 @@ class ChoooseModeScreen extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 25.h),
-                AppButton(title: AppStrings.getStarted, onPressed: () {
-
-                  Navigator.pushNamed(context, AppRoutes.chooseSignMethodScreen);
-                }),
+                AppButton(
+                  title: AppStrings.getStarted,
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      AppRoutes.chooseSignMethodScreen,
+                    );
+                  },
+                ),
               ],
             ),
           ),

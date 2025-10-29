@@ -24,6 +24,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: spotifyLogo()));
+    return Scaffold(body: Center(child: logo()));
   }
 }
