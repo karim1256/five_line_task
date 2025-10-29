@@ -1,30 +1,25 @@
+
 class AppStrings {
   ///welcome Screens///////
-  static const String enjoyListening = 'Enjoy Listening To Music';
-  static const String loremIpsum =
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis enim purus sed phasellus. Cursus ornare id scelerisque aliquam.';
-  static const String chooseMode = 'Choose Mode';
-  static const String lightMood = 'Light Mood';
-  static const String darkMood = 'Dark Mood';
+  static const String enjoyListening = 'enjoyListening';
+  static const String loremIpsum = 'loremIpsum';
+  static const String chooseMode = 'chooseMode';
+  static const String lightMood = 'lightMood';
+  static const String darkMood = 'darkMood';
 
   ///signIn Screen///////
-  static const String chooseSignMethod =
-      "Spotify is a proprietary Swedish audio streaming and media services provider";
-        static const String signIn ="Sign In";
-
-                static const String support1="If you need any support";
-                static const String support2="click here";
-                static const String forgetPassword="Recovery password";
-    static const String register1="not a member ?";
-        static const String register2="register now";
-   ///signUP Screen///////
-        static const String signUp ="Sign Up";
-    static const String signInQuetion="Do you have an account ?";
-
-
-
-
+  static const String chooseSignMethod = 'chooseSignMethod';
+  static const String signIn = 'signIn';
+  static const String support1 = 'support1';
+  static const String support2 = 'support2';
+  static const String forgetPassword = 'forgetPassword';
+  static const String register1 = 'register1';
+  static const String register2 = 'register2';
+  
+  ///signUP Screen///////
+  static const String signUp = 'signUp';
+  static const String signInQuetion = 'signInQuetion';
 
   ///////Buttons///////////////////////////////////////////////////
-  static const String getStarted = 'Get Started';
+  static const String getStarted = 'getStarted';
 }

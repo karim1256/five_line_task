@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:five_line_task/app_route.dart';
 import 'package:five_line_task/common/helpers.dart/is_dark_mode.dart';
 import 'package:five_line_task/common/widgets/app_button.dart';
@@ -31,7 +32,7 @@ class GetStartedScreen extends StatelessWidget {
                 logo(),
                 Spacer(),
                 Text(
-                  AppStrings.enjoyListening,
+                  AppStrings.enjoyListening.tr(),
                   textAlign: TextAlign.center,
                   style: context.isDarkMode
                       ? AppTextTheme.headingMediumBold
@@ -45,10 +46,10 @@ class GetStartedScreen extends StatelessWidget {
                       ? AppTextTheme.bodySmallGrey
                       : AppTextTheme.bodySmallLight,
                   maxLines: 3,
-                ),
+                ).tr(),
                 SizedBox(height: 25.h),
                 AppButton(
-                  title: AppStrings.getStarted,
+                  title: AppStrings.getStarted.tr(),
                   onPressed: () {
                     Navigator.pushReplacementNamed(
                       context,

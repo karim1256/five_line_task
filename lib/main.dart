@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:five_line_task/app_route.dart';
 import 'package:five_line_task/core/constants/theme/app_theme.dart';
@@ -21,8 +22,18 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform
   );
-  runApp(MyApp());
-}
+    WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+runApp(
+  EasyLocalization(
+    supportedLocales: const [Locale('en'), Locale('ar')],
+    path: 'assets/translations',
+    startLocale:const Locale('en') ,
+    fallbackLocale:const Locale('ar') ,
+    saveLocale: true,
+    child: const MyApp(),
+  ),
+);}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -42,6 +53,9 @@ class MyApp extends StatelessWidget {
           ],
           child: BlocBuilder<ThemeCubit, ThemeMode>(
             builder: (BuildContext context, ThemeMode mode) => MaterialApp(
+localizationsDelegates: context.localizationDelegates,
+supportedLocales: context.supportedLocales,
+locale: context.locale,
               theme: AppTheme.lightTheme,
               darkTheme: AppTheme.darkTheme,
               themeMode: mode,

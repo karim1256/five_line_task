@@ -4,12 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget logo({double width = 0.18}) {
-  return Row(
+  return 
+  Directionality(
+  textDirection: TextDirection.ltr,
+  child:
+  Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Image.asset(AppImages.logo, width: width.sw),
       SizedBox(width: 8.w),
-      Text('MyTasks', style: AppTextTheme.logoTitle),
+      Text('MyTasks', style: AppTextTheme.logoTitle,
+      )
     ],
+  )
   );
 }

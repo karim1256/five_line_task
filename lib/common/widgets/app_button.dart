@@ -49,7 +49,7 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    // Colors
+    
     final effectiveBackgroundColor = backgroundColor ?? theme.primaryColor;
     final effectiveTextColor = textColor ?? theme.colorScheme.onPrimary;
     final effectiveDisabledColor = disabledColor ?? theme.disabledColor;

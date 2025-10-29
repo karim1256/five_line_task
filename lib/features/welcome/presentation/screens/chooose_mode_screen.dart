@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:five_line_task/app_route.dart';
 import 'package:five_line_task/common/helpers.dart/is_dark_mode.dart';
 import 'package:five_line_task/common/widgets/app_button.dart';
@@ -37,7 +38,7 @@ class ChoooseModeScreen extends StatelessWidget {
                 logo(),
                 Spacer(),
                 Text(
-                  AppStrings.chooseMode,
+                  AppStrings.chooseMode.tr(),
                   textAlign: TextAlign.center,
                   style: context.isDarkMode
                       ? AppTextTheme.headingMediumBold
@@ -50,21 +51,21 @@ class ChoooseModeScreen extends StatelessWidget {
                   children: [
                     MoodVector(
                       themeMode: ThemeMode.light,
-                      title: AppStrings.lightMood,
+                      title: AppStrings.lightMood.tr(),
                       vectorName: AppVectors.sun,
                     ),
                     SizedBox(width: 20.w),
                     MoodVector(
                       themeMode: ThemeMode.dark,
 
-                      title: AppStrings.darkMood,
+                      title: AppStrings.darkMood.tr(),
                       vectorName: AppVectors.moon,
                     ),
                   ],
                 ),
                 SizedBox(height: 25.h),
                 AppButton(
-                  title: AppStrings.getStarted,
+                  title: AppStrings.getStarted.tr(),
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
