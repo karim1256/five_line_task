@@ -69,7 +69,7 @@ class ChoooseModeScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
-                      AppRoutes.chooseSignMethodScreen,
+                      AppRoutes.signIn,
                     );
                   },
                 ),

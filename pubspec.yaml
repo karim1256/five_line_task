@@ -43,6 +43,8 @@ dependencies:
   firebase_auth: ^6.1.1
   easy_localization: ^3.0.8
   data_connection_checker_tv: ^0.3.5-nullsafety
+  dartz: ^0.10.1
+  get_it: ^8.2.0
 
 dev_dependencies:
   flutter_test:
