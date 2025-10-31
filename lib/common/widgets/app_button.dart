@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppButton extends StatelessWidget {
   final VoidCallback? onPressed;
-  final String title;
+  final dynamic title;
   final double? height;
   final double? width;
   final double? minWidth;
@@ -104,7 +104,12 @@ class AppButton extends StatelessWidget {
           animationDuration: const Duration(milliseconds: 200),
           enableFeedback: true,
         ),
-        child: Text(
+        child:
+        
+        title is Widget
+            ? title
+            :
+         Text(
           title,
           style: effectiveTextStyle,
           textAlign: TextAlign.center,

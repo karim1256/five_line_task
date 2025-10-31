@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:five_line_task/app_route.dart';
+import 'package:five_line_task/common/helpers.dart/get_it.dart';
 import 'package:five_line_task/core/constants/assets_path/app_translations.dart';
 import 'package:five_line_task/core/constants/theme/app_theme.dart';
 import 'package:five_line_task/features/welcome/presentation/cubit/theme_cubit/theme_cubit.dart';
@@ -22,6 +23,7 @@ Future<void> main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  setup();
   runApp(
     EasyLocalization(
       supportedLocales: const [Locale('en'), Locale('ar')],
@@ -56,7 +58,7 @@ class MyApp extends StatelessWidget {
               theme: AppTheme.lightTheme,
               darkTheme: AppTheme.darkTheme,
               themeMode: mode,
-              initialRoute: AppRoutes.splash,
+              initialRoute: AppRoutes.forgetPassword,
               routes: routes,
               debugShowCheckedModeBanner: false,
             ),

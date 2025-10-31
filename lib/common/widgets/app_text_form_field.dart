@@ -2,16 +2,25 @@ import 'package:five_line_task/core/constants/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SpotifyTextFields extends StatefulWidget {
-  const SpotifyTextFields({super.key});
+class MyTaskTextFields extends StatefulWidget {
+  final TextEditingController? controller;
+  final String hintText;
+  final TextInputType keyboardType;
+  final bool isPassword;
+  
+  const MyTaskTextFields({
+    super.key,
+     this.controller,
+    this.hintText = 'Enter Username Or Email',
+    this.keyboardType = TextInputType.emailAddress,
+    this.isPassword = false,
+  });
 
   @override
-  State<SpotifyTextFields> createState() => _SpotifyTextFieldsState();
+  State<MyTaskTextFields> createState() => _MyTaskTextFieldsState();
 }
 
-class _SpotifyTextFieldsState extends State<SpotifyTextFields> {
-  final TextEditingController usernameController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+class _MyTaskTextFieldsState extends State<MyTaskTextFields> {
   bool isPasswordVisible = false;
 
   @override
@@ -19,9 +28,10 @@ class _SpotifyTextFieldsState extends State<SpotifyTextFields> {
     return SizedBox(
       width: 0.9.sw,
       child: TextFormField(
-        controller: usernameController,
+        controller: widget.controller,
+        obscureText: widget.isPassword && !isPasswordVisible,
         decoration: InputDecoration(
-          hintText: 'Enter Username Or Email',
+          hintText: widget.hintText,
           hintStyle: TextStyle(color: AppColors.textForm),
           filled: true,
           fillColor: AppColors.lightBackground,
@@ -41,8 +51,22 @@ class _SpotifyTextFieldsState extends State<SpotifyTextFields> {
             borderRadius: BorderRadius.circular(26),
             borderSide: BorderSide(color: AppColors.textForm, width: 1),
           ),
+          // Add suffix icon for password field
+          suffixIcon: widget.isPassword
+              ? IconButton(
+                  icon: Icon(
+                    isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                    color: AppColors.textForm,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      isPasswordVisible = !isPasswordVisible;
+                    });
+                  },
+                )
+              : null,
         ),
-        keyboardType: TextInputType.emailAddress,
+        keyboardType: widget.keyboardType,
       ),
     );
   }
