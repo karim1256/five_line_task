@@ -3,11 +3,12 @@ import 'package:five_line_task/core/errors/exception.dart';
 import 'package:five_line_task/core/errors/failure.dart';
 import 'package:five_line_task/core/servicee/firebase_auth_service.dart';
 import 'package:five_line_task/features/auth/data/model/create_user.dart';
+import 'package:five_line_task/features/auth/data/source/auth_firebase_service.dart';
 import 'package:five_line_task/features/auth/domain/entity/user.dart';
 import 'package:five_line_task/features/auth/domain/repo/repo.dart';
 
 class AuthRepoImpl implements AuthRepo {
-  final FirebaseAuthService firebaseAuthService;
+  final AuthFirebaseService firebaseAuthService;
   AuthRepoImpl({required this.firebaseAuthService});
   @override
 Future<Either<AuthFailure, UserEntity>> createUserWithEmailAndPassword({

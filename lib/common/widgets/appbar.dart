@@ -21,10 +21,9 @@ class MyTaskAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leading: leading,
-      title: title ?? logo(width: 0.32),
+      title: title ?? logo(width: 0.12),
       actions: actions,
       centerTitle: true,
-   
     );
   }
 }

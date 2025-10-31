@@ -1,4 +1,6 @@
 import 'package:five_line_task/features/auth/domain/repo/repo.dart';
+import 'package:five_line_task/features/auth/domain/usecases/signin.dart';
+import 'package:five_line_task/features/auth/domain/usecases/signup.dart';
 import 'package:five_line_task/features/auth/presentation/bloc/states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,14 +15,13 @@ class AuthCubit extends Cubit<AuthState> {
     String name,
   ) async {
     emit(SignupLoading());
-    final result = await authRepo.createUserWithEmailAndPassword(
-      email: email,
-      password: password,
-      name: name,
-    );
+
+    final result = await CreateUserWithEmailAndPasswordUseCase(
+      authRepo,
+    ).call(email: email, password: password, name: name);
     result.fold(
       (failure) {
-                print("------------------fail---------------------");
+        print("------------------fail---------------------");
 
         emit(SignupFailure(message: "error occured: ${failure.toString()}"));
       },
@@ -31,19 +32,18 @@ class AuthCubit extends Cubit<AuthState> {
     );
   }
 
-
-   Future<void> signInWithEmailAndPassword(
-    String email,
-    String password,
-  ) async {
+  Future<void> signInWithEmailAndPassword(String email, String password) async {
     emit(SigninLoading());
-    final result = await authRepo.signInWithEmailAndPassword(
+    final result = await SignInWithEmailAndPasswordUseCase(authRepo).call
+    (
       email: email,
       password: password,
     );
     result.fold(
       (failure) {
-                print("------------------fail  ${failure.toString()}---------------------");
+        print(
+          "------------------fail  ${failure.toString()}---------------------",
+        );
 
         emit(SigninFailure(message: "error occured: ${failure.toString()}"));
       },

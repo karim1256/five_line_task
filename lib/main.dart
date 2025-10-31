@@ -34,6 +34,9 @@ Future<void> main() async {
       child: const MyApp(),
     ),
   );
+  // addTask();
+  // print('task added');
+  // listTask();
 }
 
 class MyApp extends StatelessWidget {
@@ -58,7 +61,7 @@ class MyApp extends StatelessWidget {
               theme: AppTheme.lightTheme,
               darkTheme: AppTheme.darkTheme,
               themeMode: mode,
-              initialRoute: AppRoutes.forgetPassword,
+              initialRoute: AppRoutes.tasksPage,
               routes: routes,
               debugShowCheckedModeBanner: false,
             ),
@@ -68,3 +71,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
