@@ -5,7 +5,7 @@
 This repository contains a Flutter application developed as part of the **Flutter Developer Practical Test** for *Five Line for Web Services*.  
 The project, titled **“My Tasks”**, is a task management app that allows users to efficiently organize, create, and track their daily tasks.  
 
-The app demonstrates clean architecture using the **Bloc** and **Hydrated Bloc** state management approach with **Firebase** as the backend for authentication and data storage. It also includes localization (Arabic/English), offline persistence, and smooth UI animations.
+The app demonstrates clean architecture using the **Bloc** and **Hydrated Bloc** state management approach with **Firebase** as the backend for authentication and data storage. It also includes localization (Arabic/English), offline persistence.
 
 ---
 
@@ -35,7 +35,6 @@ The app demonstrates clean architecture using the **Bloc** and **Hydrated Bloc**
     - **Restart App** functionality using `restart_app` package.  
     - **Network Checker** using `data_connection_checker_tv` for real-time connection monitoring.  
     - **Dependency Injection** implemented with `get_it`.  
-    - **Animations** and UI transitions for smooth navigation.  
 
 ---
 
