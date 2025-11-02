@@ -1,17 +1,24 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:five_line_task/core/errors/exception.dart';
 
+
+
 abstract class AuthFirebaseService {
-    Future<User?> createUserWithEmailAndPassword({
+  Future<User?> createUserWithEmailAndPassword({
     required String email,
     required String password,
   });
-    Future<User?> signInWithEmailAndPassword({
+  
+  Future<User?> signInWithEmailAndPassword({
     required String email,
     required String password,
+  });
+  
+  // Add this method
+  Future<void> sendPasswordResetEmail({
+    required String email,
   });
 }
-
 
 
 
@@ -63,14 +70,26 @@ class FirebaseAuthService extends AuthFirebaseService{
 
   throw CustomException(message:e.message ?? "Firebase Auth Exception");
 
-
-
   }
 }
   }
 
-
-
-
-
+    Future<void> sendPasswordResetEmail({
+    required String email,
+  }) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        throw CustomException(message: 'No user found for that email.');
+      } else if (e.code == 'invalid-email') {
+        throw CustomException(message: 'The email address is not valid.');
+      } else {
+        throw CustomException(message: e.message ?? "Firebase Auth Exception");
+      }
+    } catch (e) {
+      throw CustomException(message: "Unknown error occurred");
+    }
+  }
 }
+

@@ -1,3 +1,4 @@
+import 'package:five_line_task/core/constants/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -49,9 +50,8 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    
     final effectiveBackgroundColor = backgroundColor ?? theme.primaryColor;
-    final effectiveTextColor = textColor ?? theme.colorScheme.onPrimary;
+    final effectiveTextColor = textColor ?? AppColors.lightBackground;
     final effectiveDisabledColor = disabledColor ?? theme.disabledColor;
     final effectivePressedColor =
         pressedColor ?? theme.primaryColor.withOpacity(0.7);
@@ -104,18 +104,15 @@ class AppButton extends StatelessWidget {
           animationDuration: const Duration(milliseconds: 200),
           enableFeedback: true,
         ),
-        child:
-        
-        title is Widget
+        child: title is Widget
             ? title
-            :
-         Text(
-          title,
-          style: effectiveTextStyle,
-          textAlign: TextAlign.center,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
+            : Text(
+                title,
+                style: effectiveTextStyle,
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
       ),
     );
   }

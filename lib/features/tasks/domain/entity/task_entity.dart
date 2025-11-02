@@ -1,8 +1,11 @@
 class TaskEntity {
-    String? taskId;
-    String? title;
-    String? describtion;
-    bool? isDone;
-
-    
+  final String taskId;
+  final String title;
+  final String description; // Fixed typo: describtion -> description
+  
+  TaskEntity({
+    required this.taskId,
+    required this.title,
+    required this.description,
+  });
 }

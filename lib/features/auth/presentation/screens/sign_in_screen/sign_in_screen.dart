@@ -13,7 +13,9 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AuthCubit(getIt<AuthRepo>()),
-      child: Scaffold(appBar: MyTaskAppBar(), body: ForgetPasswordBody()),
+      child: Scaffold(appBar: MyTaskAppBar(
+
+      ), body: ForgetPasswordBody()),
     );
   }
 }

@@ -1,16 +1,21 @@
-  import 'package:five_line_task/core/constants/app_strings.dart';
-import 'package:five_line_task/core/constants/theme/app_colors.dart';
+  import 'package:easy_localization/easy_localization.dart';
+import 'package:five_line_task/common/helpers.dart/is_dark_mode.dart';
+import 'package:five_line_task/core/constants/app_strings.dart';
+import 'package:five_line_task/core/constants/theme/app_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
-Widget forgetPasswordText() {
-    return Align(
+Widget forgetPasswordText(BuildContext context, {VoidCallback? onTap}) {
+  return GestureDetector(
+    onTap: onTap,
+    child: Align(
       alignment: Alignment.topLeft,
       child: Text(
-        AppStrings.forgetPassword,
+        AppStrings.forgetPassword.tr(),
         textAlign: TextAlign.left,
-        style: TextStyle(color: AppColors.lightTitle, fontSize: 13.sp),
+        style: context.isDarkMode
+            ? AppTextTheme.bodySmallGrey
+            : AppTextTheme.bodySmallLight,
       ),
-    );
-  }
+    ),
+  );
+}

@@ -1,29 +1,43 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:five_line_task/common/helpers.dart/get_it.dart';
+import 'package:five_line_task/common/widgets/app_text_form_field.dart';
+import 'package:five_line_task/core/constants/app_strings.dart';
+import 'package:five_line_task/core/constants/theme/app_colors.dart';
+import 'package:five_line_task/features/tasks/domain/repo/tasks_repo.dart';
+import 'package:five_line_task/features/tasks/domain/usecases/add_task.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 void showAddTaskSheet(BuildContext context) {
   final titleController = TextEditingController();
   final descriptionController = TextEditingController();
 
-  Future<void> _addTask() async {
-    final title = titleController.text.trim();
-    final description = descriptionController.text.trim();
+  // Future<void> _addTask() async {
+  //   final useCase = AddTaskUseCase(getIt<TasksRepo>());
+  //   final result = await useCase.call(
+  //     title: titleController.text.trim(),
+  //     description: descriptionController.text.trim(),
+  //   );
 
-    if (title.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Title is required')),
-      );
-      return;
-    }
-
-    await FirebaseFirestore.instance.collection('tasks').add({
-      'title': title,
-      'description': description.isEmpty ? null : description,
-      'isDone': false,
-    });
-
-    Navigator.pop(context);
-  }
+  //   result.fold(
+  //     (failure) {
+  //       ScaffoldMessenger.of(context).showSnackBar(
+  //         SnackBar(
+  //           content: Text(AppStrings.failedToAddTask.tr()),
+  //           backgroundColor: Colors.red,
+  //         ),
+  //       );
+  //     },
+  //     (_) {
+  //       Navigator.pop(context);
+  //       ScaffoldMessenger.of(context).showSnackBar(
+  //          SnackBar(
+  //           content: Text(AppStrings.taskAddedSuccessfully.tr()),
+  //           backgroundColor: Colors.green,
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 
   showModalBottomSheet(
     context: context,
@@ -56,49 +70,50 @@ void showAddTaskSheet(BuildContext context) {
             ),
             const SizedBox(height: 20),
             Text(
-              'Add New Task',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge
-                  ?.copyWith(fontWeight: FontWeight.bold),
+             AppStrings.addNewTask.tr(),
+              style: Theme.of(
+                context,
+              ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),
             TextField(
               controller: titleController,
               decoration: InputDecoration(
-                labelText: 'Title *',
+                labelText: '${AppStrings.title.tr()} *',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
             ),
             const SizedBox(height: 12),
-            TextField(
-              controller: descriptionController,
-              decoration: InputDecoration(
-                labelText: 'Description (optional)',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-              maxLines: 2,
+            MyTaskTextFields(
+            controller: descriptionController,
+            hintText :AppStrings.description.tr(),
+          
+
             ),
+           
             const SizedBox(height: 20),
             ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.deepPurple,
+                backgroundColor: AppColors.primary,
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-              onPressed: _addTask,
+              onPressed:()=>
+               AddTaskUseCase(
+                getIt<TasksRepo>(),
+              ).call(title: titleController.text,description: descriptionController.text),
               icon: const Icon(Icons.add, color: Colors.white),
-              label: const Text(
-                'Add Task',
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              label:  Text(
+                AppStrings.addTask.tr(),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             const SizedBox(height: 10),

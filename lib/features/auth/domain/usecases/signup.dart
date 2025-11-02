@@ -8,7 +8,7 @@ class CreateUserWithEmailAndPasswordUseCase {
 
   CreateUserWithEmailAndPasswordUseCase(this.repo);
 
-  Future<Either<AuthFailure, UserEntity>> call({
+  Future<Either<Failure, UserEntity>> call({
     required String email,
     required String password,
     required String name,

@@ -8,13 +8,10 @@ class SignInWithEmailAndPasswordUseCase {
 
   SignInWithEmailAndPasswordUseCase(this.repo);
 
-  Future<Either<AuthFailure, UserEntity>> call({
+  Future<Either<Failure, UserEntity>> call({
     required String email,
     required String password,
   }) {
-    return repo.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
+    return repo.signInWithEmailAndPassword(email: email, password: password);
   }
 }

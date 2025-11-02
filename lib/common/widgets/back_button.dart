@@ -1,3 +1,4 @@
+import 'package:five_line_task/common/helpers.dart/is_dark_mode.dart';
 import 'package:five_line_task/core/constants/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,7 +18,9 @@ class AppBackButton extends StatelessWidget {
         child: IconButton(
           icon: Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: Colors.white,
+            color: context.isDarkMode?
+             AppColors.darkBackground: AppColors.lightBackground
+            ,
             size: 22.w,
           ),
           onPressed: () {

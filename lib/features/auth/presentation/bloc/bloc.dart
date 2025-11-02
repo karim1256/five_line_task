@@ -1,4 +1,5 @@
 import 'package:five_line_task/features/auth/domain/repo/repo.dart';
+import 'package:five_line_task/features/auth/domain/usecases/send_password.dart';
 import 'package:five_line_task/features/auth/domain/usecases/signin.dart';
 import 'package:five_line_task/features/auth/domain/usecases/signup.dart';
 import 'package:five_line_task/features/auth/presentation/bloc/states.dart';
@@ -22,8 +23,15 @@ class AuthCubit extends Cubit<AuthState> {
     result.fold(
       (failure) {
         print("------------------fail---------------------");
-
-        emit(SignupFailure(message: "error occured: ${failure.toString()}"));
+        print(
+          "----------error occured: ${failure.toString()}--------------------",
+        );
+        emit(
+          SignupFailure(
+            message:
+                "----------error occured: ${failure.toString()}--------------------",
+          ),
+        );
       },
       (userEntity) {
         print("------------------success---------------------");
@@ -34,11 +42,9 @@ class AuthCubit extends Cubit<AuthState> {
 
   Future<void> signInWithEmailAndPassword(String email, String password) async {
     emit(SigninLoading());
-    final result = await SignInWithEmailAndPasswordUseCase(authRepo).call
-    (
-      email: email,
-      password: password,
-    );
+    final result = await SignInWithEmailAndPasswordUseCase(
+      authRepo,
+    ).call(email: email, password: password);
     result.fold(
       (failure) {
         print(
@@ -53,4 +59,25 @@ class AuthCubit extends Cubit<AuthState> {
       },
     );
   }
+
+
+   Future<void> sendPasswordResetEmail(String email) async {
+    emit(ForgetPasswordLoading());
+    
+    final result = await SendPasswordResetEmailUseCase(authRepo).call(email: email);
+    result.fold(
+      (failure) {
+        print("------------------forget password fail---------------------");
+        print("----------error occured: ${failure.toString()}--------------------");
+        emit(ForgetPasswordFailure(message: failure.toString()));
+      },
+      (_) {
+        print("------------------forget password success---------------------");
+        emit(ForgetPasswordSuccess(
+          message: "Password reset email sent successfully. Please check your email.",
+        ));
+      },
+    );
+  }
 }
+
