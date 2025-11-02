@@ -43,28 +43,8 @@ The app demonstrates clean architecture using the **Bloc** and **Hydrated Bloc**
 
 The application follows **Clean Architecture** principles and is organized feature-wise under the `lib/` directory.
 
-lib/
-│
-├── common/ # Shared UI components and utilities
-│ ├── helpers/ # Helper functions and extensions
-│ └── widgets/ # Reusable widgets (buttons, fields, etc.)
-│
-├── core/ # Core functionalities and global setup
-│ ├── cache/ # Local storage and caching logic
-│ ├── configs/ # App-level configurations (themes, constants)
-│ ├── connection/ # Network connection monitoring
-│ ├── constants/ # App constants (colors, strings, etc.)
-│ ├── errors/ # Error handling and exceptions
-│ └── servicee/ # Global service locators / dependency injection
-│
-├── features/ # Main app features (divided by modules)
-│ ├── auth/ # Authentication module (login, register, logout)
-│ ├── tasks/ # Task management (CRUD operations)
-│ └── welcome/ # Welcome / onboarding screens
-│
-├── app_route.dart # App navigation and route definitions
-├── firebase_options.dart # Firebase configuration setup
-└── main.dart # Application entry point
+![image alt](https://github.com/karim1256/five_line_task/blob/ae6a0765b76cce89049c7c91f0ab8a87b5a9d71e/Screenshot%202025-11-03%20002948.png)
+
 
 
 **Architecture Used:** Clean Architecture (Data → Domain → Presentation)  
