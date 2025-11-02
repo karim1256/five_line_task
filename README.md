@@ -11,7 +11,7 @@ The app demonstrates clean architecture using the **Bloc** and **Hydrated Bloc**
 
 ## Core Features
 
-*   **Splash and Authentication Screens**  
+*   **Splash and onboar and Authentication Screens**  
     - Splash screen with app logo and name.  
     - Firebase Authentication for login, signup, and logout.  
     - Authentication state persisted locally with **Hydrated Bloc**.
