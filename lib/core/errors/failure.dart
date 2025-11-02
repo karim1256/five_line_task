@@ -1,46 +1,45 @@
-
-abstract class AuthFailure {
-  const AuthFailure();
+abstract class Failure {
+  const Failure();
 }
 
-class ServerFailure extends AuthFailure {
+class ServerFailure extends Failure {
   final String message;
   const ServerFailure(this.message);
 }
 
-class EmailAlreadyInUseFailure extends AuthFailure {
+class EmailAlreadyInUseFailure extends Failure {
   const EmailAlreadyInUseFailure();
 }
 
-class InvalidEmailFailure extends AuthFailure {
+class InvalidEmailFailure extends Failure {
   const InvalidEmailFailure();
 }
 
-class WeakPasswordFailure extends AuthFailure {
+class WeakPasswordFailure extends Failure {
   const WeakPasswordFailure();
 }
 
-class WrongPasswordFailure extends AuthFailure {
+class WrongPasswordFailure extends Failure {
   const WrongPasswordFailure();
 }
 
-class UserNotFoundFailure extends AuthFailure {
+class UserNotFoundFailure extends Failure {
   const UserNotFoundFailure();
 }
 
-class UserDisabledFailure extends AuthFailure {
+class UserDisabledFailure extends Failure {
   const UserDisabledFailure();
 }
 
-class TooManyRequestsFailure extends AuthFailure {
+class TooManyRequestsFailure extends Failure {
   const TooManyRequestsFailure();
 }
 
-class NetworkFailure extends AuthFailure {
+class NetworkFailure extends Failure {
   const NetworkFailure();
 }
 
-class UnexpectedFailure extends AuthFailure {
+class UnexpectedFailure extends Failure {
   final String message;
   const UnexpectedFailure(this.message);
 }

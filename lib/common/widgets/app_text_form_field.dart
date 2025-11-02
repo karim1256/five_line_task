@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:five_line_task/core/constants/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,7 +32,7 @@ class _MyTaskTextFieldsState extends State<MyTaskTextFields> {
         controller: widget.controller,
         obscureText: widget.isPassword && !isPasswordVisible,
         decoration: InputDecoration(
-          hintText: widget.hintText,
+          hintText: widget.hintText.tr(),
           hintStyle: TextStyle(color: AppColors.textForm),
           filled: true,
           fillColor: AppColors.lightBackground,

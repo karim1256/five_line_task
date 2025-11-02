@@ -4,6 +4,7 @@ import 'package:five_line_task/app_route.dart';
 import 'package:five_line_task/common/helpers.dart/get_it.dart';
 import 'package:five_line_task/core/constants/assets_path/app_translations.dart';
 import 'package:five_line_task/core/constants/theme/app_theme.dart';
+
 import 'package:five_line_task/features/welcome/presentation/cubit/theme_cubit/theme_cubit.dart';
 import 'package:five_line_task/firebase_options.dart';
 import 'package:flutter/foundation.dart';
@@ -28,12 +29,16 @@ Future<void> main() async {
     EasyLocalization(
       supportedLocales: const [Locale('en'), Locale('ar')],
       path: AppTranslations.appTranslationsPath,
-      startLocale: const Locale('en'),
+      // startLocale: const Locale('ar'),
       fallbackLocale: const Locale('ar'),
       saveLocale: true,
       child: const MyApp(),
     ),
   );
+  // addTask();
+  // print('task added');
+  // listTask();
+
 }
 
 class MyApp extends StatelessWidget {
@@ -44,7 +49,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
-      splitScreenMode: true,
+     splitScreenMode: true,
       builder: (context, child) {
         return MultiBlocProvider(
           providers: [
@@ -58,7 +63,7 @@ class MyApp extends StatelessWidget {
               theme: AppTheme.lightTheme,
               darkTheme: AppTheme.darkTheme,
               themeMode: mode,
-              initialRoute: AppRoutes.forgetPassword,
+              initialRoute: AppRoutes.splash,
               routes: routes,
               debugShowCheckedModeBanner: false,
             ),
@@ -68,3 +73,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+

@@ -1,29 +1,95 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:five_line_task/core/errors/exception.dart';
+
+
 
 abstract class AuthFirebaseService {
-    Future<void> signup();
-    Future<void> signin();
+  Future<User?> createUserWithEmailAndPassword({
+    required String email,
+    required String password,
+  });
+  
+  Future<User?> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  });
+  
+  // Add this method
+  Future<void> sendPasswordResetEmail({
+    required String email,
+  });
 }
 
 
-class AuthFirebaseServiceImpl extends AuthFirebaseService {
 
-    @override
-    Future<void> signin() {
-        // TODO: implement signin    TODO: implement signin
-        throw UnimplementedError();
-    }
 
-    @override
-    Future<void> signup() async {
-        try {
-            await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                email: '',    // Error: Undefined name 'email'
-                password: ''    // Error: Undefined name 'password'
-            );
-        }
-        on FirebaseAuthException catch(e) {    // Warning: The exception variable 'e' isn't used
-            // Missing implementation
-        }
+class FirebaseAuthService extends AuthFirebaseService{
+  Future<User?> createUserWithEmailAndPassword
+  ({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final credential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+      FirebaseAuth.instance.currentUser?.sendEmailVerification();
+      return credential.user!;
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        throw CustomException(message: 'The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        throw CustomException(
+          message: 'The account already exists for that email.',
+        );
+      } else {
+        throw CustomException(message: e.message ?? "Firebase Auth Exception");
+      }
+    } catch (e) {
+      CustomException(message: "unkown error");
     }
+    return null;
+  }
+
+ Future<User?> signInWithEmailAndPassword
+ ({
+    required String email,
+    required String password,
+  }) async {
+    try {
+  final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+    email: email,
+    password: password
+  );
+        return credential.user!;
+} on FirebaseAuthException catch (e) {
+  if (e.code == 'user-not-found') {
+    throw CustomException(message:'No user found for that email.');
+  } else if (e.code == 'wrong-password') {
+    throw CustomException(message:'Wrong password provided for that user.');
+  } else{
+
+  throw CustomException(message:e.message ?? "Firebase Auth Exception");
+
+  }
 }
+  }
+
+    Future<void> sendPasswordResetEmail({
+    required String email,
+  }) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        throw CustomException(message: 'No user found for that email.');
+      } else if (e.code == 'invalid-email') {
+        throw CustomException(message: 'The email address is not valid.');
+      } else {
+        throw CustomException(message: e.message ?? "Firebase Auth Exception");
+      }
+    } catch (e) {
+      throw CustomException(message: "Unknown error occurred");
+    }
+  }
+}
+

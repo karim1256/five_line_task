@@ -13,5 +13,25 @@
   "register2": "سجل الآن",
   "signUp": "إنشاء حساب",
   "signInQuetion": "هل لديك حساب ؟",
-  "getStarted": "ابدأ الآن"
+  "getStarted": "ابدأ الآن",
+    "typeEmail": "اكتب الايميل",
+        "typePassword": "اكتب كلمه السر",
+            "typeName": "اكتب اسمك",
+      "add task": "اضافه مهمه",
+
+"editTask": "تعديل المهمة",
+  "addNewTask": "إضافة مهمة جديدة",
+  "title": "العنوان",
+  "titleRequired": "العنوان *",
+  "description": "الوصف",
+  "descriptionOptional": "الوصف (اختياري)",
+  "saveChanges": "حفظ التغييرات",
+  "addTask": "إضافة مهمة",
+  "titleCannotBeEmpty": "العنوان لا يمكن أن يكون فارغًا",
+  "taskAddedSuccessfully": "تم إضافة المهمة بنجاح!",
+  "failedToAddTask": "فشل في إضافة المهمة",
+"someThingWentWrong":"هناك مشكله",
+"english":"English"
+
+
 }

@@ -36,3 +36,18 @@ final class  SigninFailure extends AuthState {
   final String message;
    SigninFailure({required this.message});
 }
+
+
+final class ForgetPasswordInitial extends AuthState {}
+
+final class ForgetPasswordLoading extends AuthState {}
+
+final class ForgetPasswordSuccess extends AuthState {
+  final String message;
+  ForgetPasswordSuccess({required this.message});
+}
+
+final class ForgetPasswordFailure extends AuthState {
+  final String message;
+  ForgetPasswordFailure({required this.message});
+}

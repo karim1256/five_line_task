@@ -1,30 +1,34 @@
-import 'package:five_line_task/common/widgets/back_button.dart';
+import 'package:five_line_task/common/helpers.dart/is_dark_mode.dart';
 import 'package:five_line_task/common/widgets/logo.dart';
+import 'package:five_line_task/core/constants/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class MyTaskAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
-  final Widget leading;
-  final List<Widget>? actions;
+  final Widget? leading;
 
-  MyTaskAppBar({
-    Key? key,
-    this.title,
-    this.leading = const AppBackButton(),
-    this.actions,
-  }) : super(key: key);
+  MyTaskAppBar({Key? key, this.title, this.leading}) : super(key: key);
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      leading: leading,
-      title: title ?? logo(width: 0.32),
-      actions: actions,
-      centerTitle: true,
-   
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 5),
+        child: AppBar(
+          backgroundColor: context.isDarkMode
+              ? AppColors.darkBackground
+              : AppColors.lightBackground,
+          leading: leading,
+          automaticallyImplyLeading: true,
+          title: title ?? logo(width: 0.13),
+
+          centerTitle: true,
+        ),
+      ),
     );
   }
 }

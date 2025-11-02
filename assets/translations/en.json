@@ -13,5 +13,28 @@
   "register2": "register now",
   "signUp": "Sign Up",
   "signInQuetion": "Do you have an account ?",
-  "getStarted": "Get Started"
+  "getStarted": "Get Started",
+      "typeEmail": "type your email",
+        "typePassword": "type your password",
+            "typeName": "type your name",
+
+ "editTask": "Edit Task",
+  "addNewTask": "Add New Task",
+  "title": "Title",
+  "titleRequired": "Title *",
+  "description": "Description",
+  "descriptionOptional": "Description (optional)",
+  "saveChanges": "Save Changes",
+  "addTask": "Add Task",
+  "titleCannotBeEmpty": "Title cannot be empty",
+  "taskAddedSuccessfully": "Task added successfully!",
+  "failedToAddTask": "Failed to add task",
+  "someThingWentWrong":"Something went wrong",
+  "arabic":"عربي",
+  "forget_password": "Forgot Password",
+  "forget_password_description": "Enter your email address and we'll send you a link to reset your password",
+  "send_reset_link": "Send Reset Link",
+  "please_enter_email": "Please enter your email address",
+  "check_your_email": "Please check your email for the reset link"
+
 }
