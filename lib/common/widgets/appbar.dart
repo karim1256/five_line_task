@@ -6,8 +6,10 @@ import 'package:flutter/material.dart';
 class MyTaskAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
   final Widget? leading;
+    final bool implyLeading;
 
-  MyTaskAppBar({Key? key, this.title, this.leading}) : super(key: key);
+   
+  MyTaskAppBar({Key? key, this.title, this.leading,this.implyLeading=false}) : super(key: key);
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -23,7 +25,7 @@ class MyTaskAppBar extends StatelessWidget implements PreferredSizeWidget {
               ? AppColors.darkBackground
               : AppColors.lightBackground,
           leading: leading,
-          automaticallyImplyLeading: true,
+          automaticallyImplyLeading: implyLeading,
           title: title ?? logo(width: 0.13),
 
           centerTitle: true,

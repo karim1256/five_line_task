@@ -6,13 +6,17 @@ import 'package:five_line_task/features/auth/presentation/screens/sign_up_screen
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  BlocProvider(
-      create: (context) => AuthCubit(getIt<AuthRepo>()),child: Scaffold(appBar: MyTaskAppBar(), body: SignUpBody()));
+    return BlocProvider(
+      create: (context) => AuthCubit(getIt<AuthRepo>()),
+      child:  Scaffold(
+        appBar: MyTaskAppBar(),
+        body: SignUpBody(),
+      ),
+    );
   }
 }

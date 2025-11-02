@@ -18,15 +18,15 @@ class LanguageRow extends StatelessWidget {
           onTap: () {
             context.setLocale(const Locale("ar"));
           },
-          title: AppStrings.arabic.tr(),
+          title: AppStrings.arabic,
           imageName: AppImages.arabic,
         ),
-        SizedBox(width: 20.w),
+        SizedBox(width: 35.w),
         MoodVector(
           onTap: () {
             context.setLocale(const Locale("en"));
           },
-          title: AppStrings.english.tr(),
+          title: AppStrings.english,
           imageName: AppImages.english,
         ),
       ],

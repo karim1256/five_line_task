@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:svg_flutter/svg.dart';
 
-class AuthMethouds extends StatelessWidget {
-  const AuthMethouds({super.key});
+class AuthMethods extends StatelessWidget {
+  const AuthMethods({super.key});
 
   @override
   Widget build(BuildContext context) {

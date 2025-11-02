@@ -44,9 +44,20 @@ class AppStrings {
   static const String titleCannotBeEmpty = "titleCannotBeEmpty";
   static const String taskAddedSuccessfully = "taskAddedSuccessfully";
   static const String failedToAddTask = "failedToAddTask";
-    static const String someThingWentWrong = "someThingWentWrong";
-    static const String arabic = "arabic";
-    static const String english = "english";
-
-
+  static const String someThingWentWrong = "someThingWentWrong";
+  static const String arabic = "عربي";
+  static const String english = "english";
+   static const String noTasksYet = "noTasksYet";
+  static const String deleteTask = "deleteTask";
+  static const String areYouSureYouWantToDelete = "areYouSureYouWantToDelete";
+  static const String cancel = "cancel";
+  static const String delete = "delete";
+  static const String noEmail = "noEmail";
+  static const String guestUser = "guestUser";
+  static const String logout = "logout";
+  static const String titleIsRequired = "titleIsRequired";
+  static const String failedToToggleTask = "failedToToggleTask";
+  static const String failedToDeleteTask = "failedToDeleteTask";
+  static const String failedToUpdateTask = "failedToUpdateTask";
+  
 }
