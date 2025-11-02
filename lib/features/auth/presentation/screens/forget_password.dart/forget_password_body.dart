@@ -1,12 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:five_line_task/common/helpers.dart/is_dark_mode.dart';
-import 'package:five_line_task/common/widgets/app_button.dart';
-import 'package:five_line_task/common/widgets/app_text_form_field.dart';
-import 'package:five_line_task/common/widgets/loading.dart';
 import 'package:five_line_task/core/constants/app_strings.dart';
 import 'package:five_line_task/core/constants/theme/app_text.dart';
+import 'package:five_line_task/features/auth/presentation/widgets/authActionButton%20.dart';
 import 'package:five_line_task/features/auth/presentation/bloc/bloc.dart';
 import 'package:five_line_task/features/auth/presentation/bloc/states.dart';
+import 'package:five_line_task/features/auth/presentation/widgets/emailField.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,7 +15,7 @@ class ForgetPasswordBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController emailController = TextEditingController();
+    final emailController = TextEditingController();
 
     return Padding(
       padding: EdgeInsets.all(22.0.w),
@@ -39,19 +38,16 @@ class ForgetPasswordBody extends StatelessWidget {
           ),
           SizedBox(height: 30.h),
           Text(
-          AppStrings.typeEmail.tr(),
+            AppStrings.typeEmail.tr(),
             style: context.isDarkMode
-                      ? AppTextTheme.headingMediumBold
-                      : AppTextTheme.headingLightBold,
+                ? AppTextTheme.headingMediumBold
+                : AppTextTheme.headingLightBold,
           ),
           SizedBox(height: 8.h),
-          MyTaskTextFields(
-            controller: emailController,
-            hintText: AppStrings.typeEmail.tr(),
-          ),
+          EmailField(controller: emailController),
           SizedBox(height: 30.h),
           BlocConsumer<AuthCubit, AuthState>(
-            listener: (BuildContext context, AuthState state) {
+            listener: (context, state) {
               if (state is ForgetPasswordSuccess) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
@@ -59,7 +55,6 @@ class ForgetPasswordBody extends StatelessWidget {
                     backgroundColor: Colors.green,
                   ),
                 );
-                // Optionally navigate back after success
                 Future.delayed(const Duration(seconds: 2), () {
                   Navigator.pop(context);
                 });
@@ -72,36 +67,28 @@ class ForgetPasswordBody extends StatelessWidget {
                 );
               }
             },
-            builder: (BuildContext context, AuthState state) {
-              return AppButton(
-                title: state is ForgetPasswordLoading
-                    ? loading()
-                    : AppStrings.sendResetLink.tr(),
-                onPressed: state is ForgetPasswordLoading
-                    ? null
-                    : () {
-                        if (emailController.text.isNotEmpty) {
-                          context.read<AuthCubit>().sendPasswordResetEmail(
-                            emailController.text,
-                          );
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(AppStrings.pleaseEnterEmail.tr()),
-                              backgroundColor: Colors.orange,
-                            ),
-                          );
-                        }
-                      },
+            builder: (context, state) {
+              return AuthActionButton(
+                buttonText: AppStrings.sendResetLink.tr(),
+                onPressed: () {
+                  if (emailController.text.isNotEmpty) {
+                    context.read<AuthCubit>().sendPasswordResetEmail(
+                          emailController.text,
+                        );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(AppStrings.pleaseEnterEmail.tr()),
+                        backgroundColor: Colors.orange,
+                      ),
+                    );
+                  }
+                },
+                isLoading: state is ForgetPasswordLoading,
+                isEnabled: emailController.text.isNotEmpty,
               );
             },
           ),
-          // SizedBox(height: 20.h),
-          // if (state is ForgetPasswordSuccess)
-          //   Text(
-          //     AppStrings.checkYourEmail.tr(),
-          //     style: const TextStyle(color: Colors.green),
-          //   ),
         ],
       ),
     );

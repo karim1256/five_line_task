@@ -6,6 +6,7 @@ import 'package:five_line_task/features/tasks/presentation/widgets/edit_task.dar
 import 'package:flutter/material.dart';
 import 'package:five_line_task/features/tasks/presentation/widgets/task_tile.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TasksBody extends StatelessWidget {
   const TasksBody({super.key});
@@ -13,6 +14,7 @@ class TasksBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tasksRef = FirebaseFirestore.instance.collection('tasks');
+    final tasksCubit = context.read<TasksCubit>(); // Get the TasksCubit
 
     return StreamBuilder<QuerySnapshot>(
       stream: tasksRef.orderBy('title').snapshots(),
@@ -28,17 +30,17 @@ class TasksBody extends StatelessWidget {
         final docs = snapshot.data!.docs;
 
         if (docs.isEmpty) {
-          return const Center(
+          return Center(
             child: Text(
-              'No tasks yet ',
-              style: TextStyle(fontSize: 18, color: Colors.grey),
+              'No tasks yet'.tr(), // Added .tr()
+              style: TextStyle(fontSize: 18.sp, color: Colors.grey),
             ),
           );
         }
 
         return ListView.separated(
-          padding: const EdgeInsets.all(16),
-          separatorBuilder: (_, __) => const SizedBox(height: 10),
+          padding: EdgeInsets.all(16.w),
+          separatorBuilder: (_, __) => SizedBox(height: 10.h),
           itemCount: docs.length,
           itemBuilder: (context, index) {
             final task = docs[index];
@@ -55,13 +57,14 @@ class TasksBody extends StatelessWidget {
                   currentState: data['isDone'] ?? false
                 ),
               onTap: () => editTask(
-                context,
-                task.id,
-                data['title'] ?? '',
-                data['description'],
+                context: context,
+                docId: task.id,
+                title: data['title'] ?? '',
+                description: data['description'],
+                tasksCubit: tasksCubit, // Pass the TasksCubit
               ),
               onDelete: () => 
-                context.read<TasksCubit>().deleteTask(task.id), // Add delete callback
+                context.read<TasksCubit>().deleteTask(task.id), 
             );
           },
         );

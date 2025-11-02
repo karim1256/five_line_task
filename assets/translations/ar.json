@@ -31,7 +31,29 @@
   "taskAddedSuccessfully": "تم إضافة المهمة بنجاح!",
   "failedToAddTask": "فشل في إضافة المهمة",
 "someThingWentWrong":"هناك مشكله",
-"english":"English"
+"english":"English",
+  "forget_password_description": "أدخل عنوان بريدك الإلكتروني وسنرسل لك رابطًا لإعادة تعيين كلمة المرور الخاصة بك",
+ "noTasksYet": "لا توجد مهام بعد",
+  "deleteTask": "حذف المهمة",
+  "areYouSureYouWantToDelete": "هل أنت متأكد أنك تريد حذف \"{title}\"؟",
+  "@areYouSureYouWantToDelete": {
+    "description": "رسالة تأكيد الحذف",
+    "placeholders": {
+      "title": {
+        "type": "String",
+        "example": "عنوان المهمة"
+      }
+    }
+  },
+  "cancel": "إلغاء",
+  "delete": "حذف",
+  "noEmail": "لا يوجد بريد إلكتروني",
+  "guestUser": "مستخدم زائر",
+  "logout": "تسجيل الخروج",
+  "titleIsRequired": "العنوان مطلوب",
+  "failedToToggleTask": "فشل في تبديل حالة المهمة",
+  "failedToDeleteTask": "فشل في حذف المهمة",
+  "failedToUpdateTask": "فشل في تحديث المهمة"
 
 
 }

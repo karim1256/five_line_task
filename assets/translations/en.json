@@ -35,6 +35,26 @@
   "forget_password_description": "Enter your email address and we'll send you a link to reset your password",
   "send_reset_link": "Send Reset Link",
   "please_enter_email": "Please enter your email address",
-  "check_your_email": "Please check your email for the reset link"
-
+  "check_your_email": "Please check your email for the reset link",
+"noTasksYet": "No tasks yet",
+  "deleteTask": "Delete Task",
+  "areYouSureYouWantToDelete": "Are you sure you want to delete \"{title}\"?",
+  "@areYouSureYouWantToDelete": {
+    "description": "Delete confirmation dialog message",
+    "placeholders": {
+      "title": {
+        "type": "String",
+        "example": "Task title"
+      }
+    }
+  },
+  "cancel": "Cancel",
+  "delete": "Delete",
+  "noEmail": "No Email",
+  "guestUser": "Guest User",
+  "logout": "Logout",
+  "titleIsRequired": "Title is required",
+  "failedToToggleTask": "Failed to toggle task",
+  "failedToDeleteTask": "Failed to delete task",
+  "failedToUpdateTask": "Failed to update task"
 }

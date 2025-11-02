@@ -44,4 +44,16 @@ class TasksRepoImpl implements TasksRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, Unit>> updateTask(String docId, String title, String description) async {
+    try {
+      await tasksFirebase.updateTask(docId, title, description);
+      return right(unit);
+    } on CustomException catch (e) {
+      return left(ServerFailure(e.message));
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
+    }
+  }
 }
