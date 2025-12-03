@@ -9,7 +9,7 @@ class MyTaskAppBar extends StatelessWidget implements PreferredSizeWidget {
     final bool implyLeading;
 
    
-  MyTaskAppBar({Key? key, this.title, this.leading,this.implyLeading=false}) : super(key: key);
+  const MyTaskAppBar({super.key, this.title, this.leading,this.implyLeading=false});
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);

@@ -3,6 +3,7 @@ import 'package:five_line_task/features/auth/presentation/screens/choose_sign_me
 import 'package:five_line_task/features/auth/presentation/screens/forget_password.dart/forget_password_screen.dart';
 import 'package:five_line_task/features/auth/presentation/screens/sign_in_screen/sign_in_screen.dart';
 import 'package:five_line_task/features/auth/presentation/screens/sign_up_screen/sign_up_screen.dart';
+
 import 'package:five_line_task/features/tasks/presentation/screens/list_tasks_screen.dart';
 import 'package:five_line_task/features/welcome/presentation/screens/chooose_mode_screen.dart';
 import 'package:five_line_task/features/welcome/presentation/screens/get_started_screen.dart';
@@ -17,6 +18,14 @@ class AppRoutes {
     static const String signUp = '/SignUp';
 static const String forgetPassword = '/forgetPassword ';
  static const String tasksPage = '/tasksPage ';
+  static const String homePage = '/homePage ';
+    static const String categoryPage = '/categoryPage ';
+        static const String companyDetailsPage = '/companyDetailsPage ';
+                static const String settingsPage = '/settingsPage ';
+
+
+
+
 
 
 }
@@ -30,4 +39,7 @@ var routes = {
     AppRoutes.signUp: (context) => const SignUpScreen(),
       AppRoutes.forgetPassword: (context) => const ForgetPasswordScreen(),
      AppRoutes.tasksPage: (context) => const TasksPage(),
+   
+
+
 };

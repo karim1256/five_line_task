@@ -31,6 +31,7 @@ class AuthHeader extends StatelessWidget {
               : AppTextTheme.headingLightBold,
         ),
         SizedBox(height: title == AppStrings.signUp.tr() ? 8.h : 5.h),
+        
         appRichText(
           text1: supportText1,
           text2: supportText2,

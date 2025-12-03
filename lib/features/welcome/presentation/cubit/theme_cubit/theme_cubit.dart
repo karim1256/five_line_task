@@ -23,7 +23,7 @@ class ThemeCubit extends HydratedCubit<ThemeMode> {
       return ThemeMode.system;
     }
   }
-
+  
   @override
   Map<String, dynamic>? toJson(ThemeMode state) {
     switch (state) {

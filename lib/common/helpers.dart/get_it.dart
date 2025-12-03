@@ -13,7 +13,7 @@ void setup() {
   getIt.registerSingleton<AuthRepo>(AuthRepoImpl(
     firebaseAuthService: getIt<AuthFirebaseService>(),
   ));
-getIt.registerLazySingleton<TasksFirebase>(() => FirebaseTasksManage());
-getIt.registerLazySingleton<TasksRepo>(() => TasksRepoImpl(tasksFirebase: getIt<TasksFirebase>()));
+  getIt.registerLazySingleton<TasksFirebase>(() => FirebaseTasksManage());
+  getIt.registerLazySingleton<TasksRepo>(() => TasksRepoImpl(tasksFirebase: getIt<TasksFirebase>()));
 
 }

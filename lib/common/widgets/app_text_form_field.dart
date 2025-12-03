@@ -8,6 +8,9 @@ class MyTaskTextFields extends StatefulWidget {
   final String hintText;
   final TextInputType keyboardType;
   final bool isPassword;
+final bool obscureText ;
+
+
   
   const MyTaskTextFields({
     super.key,
@@ -15,6 +18,8 @@ class MyTaskTextFields extends StatefulWidget {
     this.hintText = 'Enter Username Or Email',
     this.keyboardType = TextInputType.emailAddress,
     this.isPassword = false,
+      this . obscureText =false
+
   });
 
   @override
@@ -29,8 +34,8 @@ class _MyTaskTextFieldsState extends State<MyTaskTextFields> {
     return SizedBox(
       width: 0.9.sw,
       child: TextFormField(
+        obscureText :widget.obscureText ,
         controller: widget.controller,
-        obscureText: widget.isPassword && !isPasswordVisible,
         decoration: InputDecoration(
           hintText: widget.hintText.tr(),
           hintStyle: TextStyle(color: AppColors.textForm),

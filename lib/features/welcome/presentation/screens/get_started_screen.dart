@@ -45,7 +45,10 @@ class GetStartedScreen extends StatelessWidget {
               maxLines: 3,
             ),
             SizedBox(height: 20.h),
-            LanguageRow(),
+            Container(
+              
+              margin: EdgeInsets.only(),
+              child: LanguageRow()),
             SizedBox(height: 25.h),
             AppButton(
               title: AppStrings.getStarted.tr(),

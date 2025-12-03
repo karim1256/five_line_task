@@ -24,6 +24,7 @@ abstract class AuthFirebaseService {
 
 
 class FirebaseAuthService extends AuthFirebaseService{
+  @override
   Future<User?> createUserWithEmailAndPassword
   ({
     required String email,
@@ -50,7 +51,8 @@ class FirebaseAuthService extends AuthFirebaseService{
     return null;
   }
 
- Future<User?> signInWithEmailAndPassword
+ @override
+  Future<User?> signInWithEmailAndPassword
  ({
     required String email,
     required String password,
@@ -74,7 +76,8 @@ class FirebaseAuthService extends AuthFirebaseService{
 }
   }
 
-    Future<void> sendPasswordResetEmail({
+    @override
+  Future<void> sendPasswordResetEmail({
     required String email,
   }) async {
     try {

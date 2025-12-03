@@ -35,7 +35,7 @@ class SignInBody extends StatelessWidget {
           AuthFormFields(
             children: [
               EmailField(controller: emailController),
-              PasswordField(controller: passwordController),
+              PasswordField(controller: passwordController,),
             ],
           ),
           SizedBox(height: 18.h),

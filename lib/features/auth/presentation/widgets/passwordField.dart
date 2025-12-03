@@ -13,6 +13,7 @@ class PasswordField extends StatelessWidget {
     return MyTaskTextFields(
       controller: controller,
       hintText: AppStrings.typePassword.tr(),
+      obscureText: true,
     );
   }
 }

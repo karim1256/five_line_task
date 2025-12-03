@@ -52,7 +52,8 @@ class AuthRepoImpl implements AuthRepo {
     }
   }
 
-   Future<Either<Failure, Unit>> sendPasswordResetEmail({
+   @override
+  Future<Either<Failure, Unit>> sendPasswordResetEmail({
     required String email,
   }) async {
     try {
